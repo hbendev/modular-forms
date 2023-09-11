@@ -32,7 +32,7 @@ export type FieldPath<TFieldValues extends FieldValues> =
 /**
  * Returns the value of a field value or array path of a type.
  */
-type PathValue<TValue, TPath> = TPath extends `${infer TKey1}.${infer TKey2}`
+export type PathValue<TValue, TPath> = TPath extends `${infer TKey1}.${infer TKey2}`
   ? TKey1 extends keyof TValue
     ? TKey2 extends ValuePaths<TValue[TKey1]> | ArrayPaths<TValue[TKey1]>
       ? PathValue<TValue[TKey1], TKey2>
